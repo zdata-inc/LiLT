@@ -10,8 +10,8 @@ SPIECE_UNDERLINE = "▁"
 VOCAB_FILES_NAMES = {"vocab_file": "sentencepiece.bpe.model"}
 
 with open('tag.txt', 'r') as tagf:
-    TAG = tagf.read().lower()
-assert TAG == 'monolingual' or TAG == 'multilingual', 'TAG is wrong. It should be monolingual or multilingual.'
+    TAG = tagf.read().lower().strip()
+assert TAG == 'monolingual' or TAG == 'multilingual', f'TAG is wrong. It should be monolingual or multilingual. {TAG=}.'
 
 if TAG == 'monolingual':
     class LiLTRobertaLikeTokenizer(RobertaTokenizer):
